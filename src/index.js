@@ -1,3 +1,5 @@
+import { createHtml, newHtml } from './structure';
+import { fetchPhotos, getPhotos } from './photos';
 // const state = {
 //   title: 'Hello!',
 //   message: '',
@@ -17,6 +19,6 @@
 
 // window.dispatchEvent(new Event("statechange"));
 
-import createHtml from './structure';
-
-createHtml();
+fetchPhotos();
+getPhotos();
+createHtml(newHtml, document.querySelector('body'));

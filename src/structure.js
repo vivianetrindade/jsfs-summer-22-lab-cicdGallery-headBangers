@@ -1,8 +1,8 @@
-const createHtml = (structure, element) => {
+export const createHtml = (structure, element) => {
   element.innerHTML = structure;
 };
 
-const newHtml = `<header class="header">
+export const newHtml = `<header class="header">
 <nav>LOGO</nav>
 </header>
 <main class="main">
@@ -12,7 +12,6 @@ const newHtml = `<header class="header">
     <input class="input" placeholder='Search for images' type="text" name="searchterm">
 </form>
 </section>
+<section class="section__photos"></section>
 <footer class="footer">gitHub url</footer>
 </main>`;
-
-export default createHtml(newHtml, document.querySelector('body'));
