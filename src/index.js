@@ -1,5 +1,7 @@
 import { createHtml, newHtml } from './structure';
 import { fetchPhotos, getPhotos } from './photos';
+import './style.scss';
+
 // const state = {
 //   title: 'Hello!',
 //   message: '',
@@ -19,6 +21,18 @@ import { fetchPhotos, getPhotos } from './photos';
 
 // window.dispatchEvent(new Event("statechange"));
 
-fetchPhotos();
-getPhotos();
+// fetchPhotos();
+// getPhotos();
 createHtml(newHtml, document.querySelector('body'));
+const button = document.querySelector('.button');
+let list = [];
+button.addEventListener('click', e => {
+  const searchvalue = document.getElementById('input').value;
+
+  e.preventDefault();
+
+  list.push(searchvalue);
+  localStorage.setItem('recomendation', JSON.stringify(list));
+
+  getPhotos(searchvalue);
+});

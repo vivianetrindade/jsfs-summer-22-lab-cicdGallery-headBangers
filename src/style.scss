@@ -1,0 +1,29 @@
+body {
+    background-color: #FAD4D4;
+}
+hr {
+    height:2px;
+    border-width:0;
+    color:gray;
+    background-color:gray;
+}
+nav {
+    font-size: 50px;
+    position: sticky;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.form, footer, .section__button {
+    padding: 10px 10px;
+    text-align: center;
+}
+.section__photos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.section__img {
+   padding: 10px;
+    max-width: 30%;
+    display: inline-flex;
+}
