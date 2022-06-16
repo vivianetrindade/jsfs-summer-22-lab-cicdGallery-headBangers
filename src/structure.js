@@ -1,5 +1,4 @@
 
-
 export const createHtml = (structure, element) => {
   element.innerHTML = structure;
 };

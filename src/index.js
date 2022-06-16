@@ -23,9 +23,16 @@ import './style.scss';
 
 // fetchPhotos();
 // getPhotos();
+const createDataList = () => {
+  const searchedTerms = window.localStorage.getItem('recomendation');
+  const dataList = document.createElement('dataList');
+  const options = searchedTerms.map(term => `<option value=${term}`).join('');
+  dataList.innerHTML = options;
+};
+
 createHtml(newHtml, document.querySelector('body'));
 const button = document.querySelector('.button');
-let list = [];
+const list = [];
 button.addEventListener('click', e => {
   const searchvalue = document.getElementById('input').value;
 
@@ -35,4 +42,5 @@ button.addEventListener('click', e => {
   localStorage.setItem('recomendation', JSON.stringify(list));
 
   getPhotos(searchvalue);
+  createDataList();
 });
