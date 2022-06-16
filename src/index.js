@@ -1,5 +1,5 @@
 import { createHtml, newHtml } from './structure';
-import { fetchPhotos, getPhotos } from './photos';
+import { getPhotos } from './photos';
 import './style.scss';
 
 // const state = {
