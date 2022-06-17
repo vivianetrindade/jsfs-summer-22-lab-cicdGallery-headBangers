@@ -31,13 +31,13 @@ const createDataList = () => {
     dataList.setAttribute('id', 'recomendations');
 
     const options = searchedTerms.map(term => `<option value=${term}>`).join('');
-    console.log(options, 'options');
+    // console.log(options, 'options');
     dataList.innerHTML = options;
     const form = document.querySelector('form');
     form.appendChild(dataList);
   } else if (exist) {
     const options = searchedTerms.map(term => `<option value=${term}>`).join('');
-    console.log(options, 'options');
+    // console.log(options, 'options');
     exist.innerHTML = options;
   }
 };

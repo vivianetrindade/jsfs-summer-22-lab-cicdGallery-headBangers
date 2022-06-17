@@ -8,7 +8,7 @@ const fetchPhotos = async (searchValue, page) => {
   return data.results;
 };
 
-const getPhotos = async (searchValue, page)=> {
+const getPhotos = async (searchValue, page) => {
   const photos = await fetchPhotos(searchValue, page);
   const arrayImgs = photos.map(photo => `<img class="section__img" src="${photo.urls.small}" alt="${photo.alt_description}">`).join('');
   return createHtml(arrayImgs, document.querySelector('.section__photos'));
