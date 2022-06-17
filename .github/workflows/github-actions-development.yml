@@ -23,7 +23,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       - name: Use Node.js 16
-        uses: actions/setup-node@v1 
+      - uses: actions/setup-node@v1 
         with: 
           node-version: '16.x' 
       - run: npm ci 
@@ -33,5 +33,5 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run lint
-        run: npm run lint
+      - run: npm run lint
 
