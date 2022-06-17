@@ -11,7 +11,7 @@ export const newHtml = `<header class="header">
 
 <section class="section">
 <form class="form">
-    <input class="input" id="input" placeholder='Search for images' type="text" name="searchterm">
+    <input class="input" id="input" list="recomendations" placeholder='Search for images' type="text" name="searchterm">
     <button class="button" type="submit">Search</button>
 </form>
 </section>

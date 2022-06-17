@@ -24,23 +24,59 @@ import './style.scss';
 // fetchPhotos();
 // getPhotos();
 const createDataList = () => {
-  const searchedTerms = window.localStorage.getItem('recomendation');
-  const dataList = document.createElement('dataList');
-  const options = searchedTerms.map(term => `<option value=${term}`).join('');
-  dataList.innerHTML = options;
+  const searchedTerms = JSON.parse(window.localStorage.getItem('recomendation'));
+  const exist = document.getElementById('#recomendations');
+  if (!exist) {
+    const dataList = document.createElement('datalist');
+    dataList.setAttribute('id', 'recomendations');
+
+    const options = searchedTerms.map(term => `<option value=${term}>`).join('');
+    console.log(options, 'options');
+    dataList.innerHTML = options;
+    const form = document.querySelector('form');
+    form.appendChild(dataList);
+  } else if (exist) {
+    const options = searchedTerms.map(term => `<option value=${term}>`).join('');
+    console.log(options, 'options');
+    exist.innerHTML = options;
+  }
 };
 
 createHtml(newHtml, document.querySelector('body'));
 const button = document.querySelector('.button');
+const next = document.querySelector('.button__next');
 const list = [];
-button.addEventListener('click', e => {
+let page = 0;
+let query = '';
+
+next.addEventListener('click', e => {
+  page += 1;
   const searchvalue = document.getElementById('input').value;
+  if (searchvalue !== query) {
+    page = 1;
+    query = searchvalue;
+  }
 
   e.preventDefault();
 
   list.push(searchvalue);
   localStorage.setItem('recomendation', JSON.stringify(list));
 
-  getPhotos(searchvalue);
-  createDataList();
+  getPhotos(searchvalue, page);
+});
+
+button.addEventListener('click', e => {
+  const searchvalue = document.getElementById('input').value;
+  if (searchvalue !== query) {
+    page = 1;
+    query = searchvalue;
+    createDataList();
+  }
+
+  e.preventDefault();
+
+  list.push(searchvalue);
+  localStorage.setItem('recomendation', JSON.stringify(list));
+
+  getPhotos(searchvalue, page);
 });
