@@ -8,6 +8,9 @@ on:
   push:
     branches: [ "development" ]
 
+  pull_request:
+    branches: [ "development" ]
+
   # Allows you to run this workflow manually from the Actions tab
 # workflow_dispatch:
 
@@ -22,18 +25,17 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      - name: Use Node.js 16
-        uses: actions/setup-node@v3 
+      - uses: actions/setup-node@v3 
         with: 
           node-version: '16.x'
 
       - name: Install npm
-      - run: npm i 
+        run: npm i 
 
       - name: Run Jest test
-      - run: npm t
+        run: npm t
 
       # Runs a single command using the runners shell
       - name: Run lint
-      - run: npm run lint
+        run: npm run lint
 
