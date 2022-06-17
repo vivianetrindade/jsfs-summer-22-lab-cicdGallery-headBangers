@@ -8,7 +8,8 @@
     "lint-watch": "nodemon --exec 'npm run lint --silent'",
     "test": "jest",
     "lint:fix": "eslint --fix --ext .js,.jsx .",
-    "build": "webpack"
+    "start-dev": "webpack serve --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
   },
   "repository": {
     "type": "git",
@@ -22,13 +23,28 @@
   },
   "homepage": "https://github.com/nikkizhou/jsfs-summer-22-lab-cicdGallery#readme",
   "dependencies": {
-    "jest": "^28.1.1"
+    "dotenv": "^16.0.1",
+    "jest": "^28.1.1",
+    "jsdom": "^19.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.18.2",
     "@babel/preset-env": "^7.18.2",
     "babel-jest": "^28.1.1",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "dotenv-webpack": "^7.1.0",
+    "eslint-config-salt": "^1.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "postcss": "^8.4.14",
+    "postcss-loader": "^7.0.0",
+    "sass": "^1.52.3",
+    "sass-loader": "^13.0.0",
+    "style-loader": "^3.3.1",
     "webpack": "^5.73.0",
-    "webpack-cli": "^4.10.0"
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.2",
+    "webpack-merge": "^5.8.0"
   }
 }
